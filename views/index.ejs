@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog post</title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    
+    <div class="container">
+        <h1>Welcome to the blog</h1>
+    <div class="posts">
+        <% if(locals.posts.length === 0) { %>
+            <h2>No posts available</h2>
+        <% } else { %>
+            <% for(let i = 0; i < locals.posts.length; i++) { %>
+                <div class="post-card">          
+                    <h2> <%= locals.posts[i].title %> </h2>
+                    <p> <%= locals.posts[i].content %> </p>
+                    <img src="<%= locals.posts[i].image %>" alt="Post image" class="post-image">
+                    <h3> <%= locals.posts[i].author %> </h3>
+                    <p> <%= locals.posts[i].date %> </p>
+                    <div class="button">
+                        <form action="/delete/<%= locals.posts[i].id %>" method="POST" >
+                            <input type="hidden" name="_method" value="DELETE" />
+                            <button type="submit">Delete</button>
+                          </form>
+                          <a href="/edit/<%= locals.posts[i].id %>">Edit</a>
+                    </div>
+                </div>
+                
+            <% } %>
+       <%  } %>
+    </div>
+    </div>
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

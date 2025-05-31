@@ -11,22 +11,22 @@
     <div class="container">
         <h1>Welcome to the blog</h1>
     <div class="posts">
-        <% if(locals.posts.length === 0) { %>
+        <% if(posts.length === 0) { %>
             <h2>No posts available</h2>
         <% } else { %>
-            <% for(let i = 0; i < locals.posts.length; i++) { %>
+            <% for(let i = 0; i < posts.length; i++) { %>
                 <div class="post-card">          
-                    <h2> <%= locals.posts[i].title %> </h2>
-                    <p> <%= locals.posts[i].content %> </p>
-                    <img src="<%= locals.posts[i].image %>" alt="Post image" class="post-image">
-                    <h3> <%= locals.posts[i].author %> </h3>
-                    <p> <%= locals.posts[i].date %> </p>
+                    <h2> <%= posts[i].title %> </h2>
+                    <p> <%= posts[i].content %> </p>
+                    <img src="<%= posts[i].image %>" alt="Post image" class="post-image">
+                    <h3> <%= posts[i].author %> </h3>
+                    <p> <%= posts[i].date %> </p>
                     <div class="button">
-                        <form action="/delete/<%= locals.posts[i].id %>" method="POST" >
+                        <form action="/delete/<%= posts[i].id %>" method="POST" >
                             <input type="hidden" name="_method" value="DELETE" />
                             <button type="submit">Delete</button>
                           </form>
-                          <a href="/edit/<%= locals.posts[i].id %>">Edit</a>
+                          <a href="/edit/<%= posts[i].id %>">Edit</a>
                     </div>
                 </div>
                 

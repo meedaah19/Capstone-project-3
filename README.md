@@ -6,6 +6,14 @@ I'm saving user blog in my database to they will always see it when they come ba
 
 you can create, read, update, delete and edit.
 
+Stack used are:
+    EJS
+    HTML
+    JAVACRIPT
+    EXPRESS.JS
+    NODE.JS
+    VANILLA CSS
+
 To get started:
 run npm install to install all available dependecies
 then run node index.js to start the sever
